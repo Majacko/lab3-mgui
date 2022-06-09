@@ -3,4 +3,11 @@
     <string name="app_name">Android Labs</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a button</string>
+    <string name="toast_message"> Here is more information </string>
+    <string name="switchturnon"> on </string>
+    <string name="switchturnoff"> off </string>
+    <string name="clickhere"> Click Here</string>
+    <string name="checkout"> Check this out </string>
+    <string name="switchdes"> Switch on/off</string>
+    <string name="namehere">Enter Name here</string>
 </resources>
