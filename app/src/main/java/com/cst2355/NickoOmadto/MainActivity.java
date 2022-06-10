@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_linear);
+        setContentView(R.layout.activity_main_constraint);
 
         buttonClick = findViewById(R.id.button_click_here);
         switchClick = (Switch) findViewById(R.id.switch1);
