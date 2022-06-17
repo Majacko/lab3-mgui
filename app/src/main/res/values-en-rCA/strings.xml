@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="ProfileText">Your Profile</string>
+    <string name="NameText">Your Name</string>
+    <string name="NameHintText">Enter Your Name</string>
+    <string name="EmailTextViewText">Your Email</string>
+    <string name="EmailHintText">Enter your Email</string>
+    <string name="PictureTextView">Your Picture</string>
+    <string name="ImagePictureTextView">Click the button above to take a picture</string>
+    <string name="Lab3TextView1">Your Name</string>
+    <string name="Lab3EmailHint">Enter your email</string>
+    <string name="Lab3TextView2">Your Password</string>
+    <string name="Lab3LoginBtnText">Enter your password</string>
     <string name="app_name">Android Labs</string>
-    <string name="hello_message">Hello World!</string>
-    <string name="ButtonText">I\'m a button</string>
-    <string name="toast_message"> Here is more information </string>
-    <string name="switchturnon"> on </string>
-    <string name="switchturnoff"> off </string>
-    <string name="clickhere"> Click Here</string>
-    <string name="checkout"> Check this out </string>
-    <string name="switchdes"> Switch on/off</string>
-    <string name="namehere">Enter Name here</string>
+
+
+
 </resources>

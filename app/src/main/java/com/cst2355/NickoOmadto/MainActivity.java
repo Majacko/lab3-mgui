@@ -1,54 +1,51 @@
 package com.cst2355.NickoOmadto;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-
 public class MainActivity extends AppCompatActivity {
-    private Button buttonClick;
-    private Switch switchClick;
 
+    EditText emailField;
+    SharedPreferences sp;
+    Button loginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_constraint);
+        setContentView(R.layout.activity_main);
 
-        buttonClick = findViewById(R.id.button_click_here);
-        switchClick = (Switch) findViewById(R.id.switch1);
+        emailField = (EditText)findViewById(R.id.Lab3editText2);
+        sp = getSharedPreferences("FileName", Context.MODE_PRIVATE);
+        String savedString = sp.getString("ReserveName", "Default value");
+
+        emailField.setHint(savedString);
+
+        loginBtn = (Button)findViewById(R.id.Lab3LoginBtn);
+        loginBtn.setOnClickListener( c -> {
+            Intent profilePage = new Intent(MainActivity.this, ProfileActivity.class);
 
 
-        buttonClick.setOnClickListener( new View.OnClickListener(){
-            @Override
-                    public void onClick(View v){
-                Toast.makeText(getApplicationContext(), R.string.toast_message, Toast.LENGTH_LONG).show();
-
-            }
+            Intent: profilePage.putExtra("emailTyped", emailField.getText().toString());
+            startActivity(profilePage);
         });
+    }
 
-        switchClick.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b ) {
-                Snackbar sb;
-                if(b){
-                    sb = Snackbar.make(compoundButton, R.string.switchturnon, Snackbar.LENGTH_SHORT)
-                            .setAction("redo", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    switchClick.toggle();}
-                            });
-                }
-                else {
-                    sb = Snackbar.make(compoundButton, R.string.switchturnoff, Snackbar.LENGTH_SHORT);
-                }
-                sb.show();
-            }
-        });
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        //get an editor object
+        SharedPreferences.Editor editor = sp.edit();
+
+        //save what was typed under the name "ReserveName"
+        String whatWasTyped = emailField.getText().toString();
+        editor.putString("ReserveName", whatWasTyped);
+
+        //write it to disk:
+        editor.commit();
     }
 }
